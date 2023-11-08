@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from 'src/app/models/Users';
 import { Article } from 'src/app/models/articles';
 import { ArticleService } from 'src/app/services/articles.service';
@@ -9,7 +9,8 @@ import { ArticleService } from 'src/app/services/articles.service';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-article: Article[]= [];
+
+@Input() article: Article[]= [];
 baseUrl : string = "http://localhost:3000/api/picture/";
 
 

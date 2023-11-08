@@ -2,8 +2,8 @@
 
   <div class="filter-bar form-check" *ngFor="let category of allCategories">
               <input type="checkbox"
-                  id="{{category}}"
-                  value="{{category.id}}"
+                  id="category"
+                  value="{{category.id_category}}"
                   class="form-check"
                   (change)="onCheckCategory($event)">
 

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Category } from 'src/app/models/category';
+import { Category } from 'src/app/models/categorie';
+
+
 
 @Component({
   selector: 'app-filter-bar',
@@ -16,7 +18,9 @@ export class FilterBarComponent {
     console.log('valeur de la checkbox:', target.value);
 
     if (target.checked) {
+      console.log('CHECKED:', target.value);
       if (this.allCategories.length === this.categorieToDisplay.length) {
+
         this.categorieToDisplay = [];
         this.categorieToDisplay.push(+target.value);
       } else {

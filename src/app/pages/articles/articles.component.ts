@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/articles';
+import { Category } from 'src/app/models/categorie';
 import { ArticleService } from 'src/app/services/articles.service';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-articles',
@@ -9,11 +11,48 @@ import { ArticleService } from 'src/app/services/articles.service';
 })
 export class ArticlesComponent implements OnInit {
   articles: Article[] | undefined;
-  constructor(private articleService: ArticleService) {}
+  allArticles!: Article[];
+  articlesFilter: Article[] = [];
+  articleCategory!: Category[];
+  allCategories!: Category[];
+  categorieToDisplay: string[] = [];
+  categorieChecked!: number[];
+
+  constructor(
+    private articleService: ArticleService,
+    private CategoryService: CategoryService
+  ) {}
 
   ngOnInit(): void {
-    this.articleService.getArticles().subscribe((data) => {
-      this.articles = data;
+    this.articleService.getArticles().subscribe({
+      next:(response)=>{
+      this.allArticles = response;
+      this.articlesFilter = [...this.allArticles];
+
+    }
+  });
+
+    this.CategoryService.getCategorie().subscribe({
+      next: (response) => {
+        this.allCategories = [...response];
+      },
     });
   }
+aLecouteDeLenfant(categoryEnvoiParents:number[]){
+  this.categorieChecked = categoryEnvoiParents;
+  console.log('cat de enfant ok',this.categorieChecked);
+  this.onUserInteractionFiltre();
 }
+  onUserInteractionFiltre(){
+    if(this.allCategories.length === this.categorieChecked.length || this.categorieChecked.length === 0){
+
+      this.articlesFilter=[...this.allArticles];
+    }else{
+      this.articlesFilter=this.allArticles.filter((e)=>this.categorieChecked.includes(e.id_category))
+
+    }
+    }
+  }
+
+
+
