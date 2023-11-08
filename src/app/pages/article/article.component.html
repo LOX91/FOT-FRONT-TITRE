@@ -1,0 +1,12 @@
+<div class="flex flex-row space-x-4">
+  <ng-container *ngIf="article$ | async as article">
+    <div class="p-5">
+      <img class="rounded-t-lg mb-2" [src]="baseUrl + article.id_picture" alt="" />
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ article.year }}</h5>
+      <p class="mb-3 font-normal text-xl text-gray-700 dark:text-gray-400">Titre:</p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ article.titre }}</p>
+      <p class="mb-3 font-normal text-xl text-gray-700 dark:text-gray-400">Description:</p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ article.description }}</p>
+    </div>
+  </ng-container>
+</div>

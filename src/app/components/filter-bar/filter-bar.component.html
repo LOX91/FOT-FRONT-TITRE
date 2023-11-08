@@ -1,0 +1,19 @@
+<div class="css1"><h2>Filtres</h2>
+
+  <div class="filter-bar form-check" *ngFor="let category of allCategories">
+              <input type="checkbox"
+                  id="{{category}}"
+                  value="{{category.id}}"
+                  class="form-check"
+                  (change)="onCheckCategory($event)">
+
+          <label class ="form-check-label" for="{{category}}" >
+              {{category.name}}
+          </label>
+
+
+      </div>
+  <div class="container">
+
+
+  </div>

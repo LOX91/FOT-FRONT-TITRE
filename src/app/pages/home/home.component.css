@@ -1,0 +1,13 @@
+.h1 {
+size: 100 rem;
+  color: blue;
+  position: center;
+}
+p {
+  margin: 10px 0;
+  }
+
+  .bg-blue-500 {
+    background-color: #0a0a0a; /* Couleur bleue de base */
+  }
+
