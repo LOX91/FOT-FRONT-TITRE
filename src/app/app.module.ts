@@ -12,7 +12,7 @@ import { ArticlesComponent } from './pages/articles/articles.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardComponent } from './components/card/card.component';
-import { ErrorComponent } from './pages/error/error.component';
+import { ErrorComponent } from './pages/favoris/error.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -20,7 +20,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
 
 import { ArticleComponent } from './pages/article/article.component';
-
 
 @NgModule({
   declarations: [
@@ -34,13 +33,11 @@ import { ArticleComponent } from './pages/article/article.component';
     CardComponent,
     ErrorComponent,
 
-   
     FooterComponent,
     FilterBarComponent,
 
     FooterComponent,
-    ArticleComponent
-
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +45,7 @@ import { ArticleComponent } from './pages/article/article.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
