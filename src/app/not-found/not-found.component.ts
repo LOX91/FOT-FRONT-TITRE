@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./not-found.component.css']
 })
 export class NotFoundComponent {
+redirectToHome() {
+throw new Error('Method not implemented.');
+}
 
 }

@@ -1,4 +1,18 @@
-.img {
+body {
+  margin: 0;
+}
+
+.full-width-container {
   width: 100%;
-  height: 200px; /* A changer selon la hauteur que tu souhaite */
-  }
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.full-height-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}

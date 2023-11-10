@@ -9,7 +9,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-connexion',
   templateUrl: './page-connexion.component.html',
-  styleUrls: ['./page-connexion.component.css']
+  styleUrls: ['./page-connexion.component.css'],
 })
 export class ConnexionComponent implements OnInit {
   connexion!: FormGroup;
@@ -18,61 +18,63 @@ export class ConnexionComponent implements OnInit {
   faEye = faEye;
   faEyeSlash = faEyeSlash;
 
-  constructor(private userService : AuthService,
-              private formBuilder: FormBuilder,
-              private router: Router) { }
+  constructor(
+    private userService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-     if (localStorage.getItem('access_token')) {
-       this.router.navigate(['/admin'])
-     }
+    if (localStorage.getItem('access_token')) {
+      this.router.navigate(['/admin']);
+    }
 
     //L'initialisation du form doit être fait dans la fct onint dédiée
     //Le mieux est de demander l'email pour la connexion
     this.connexion = this.formBuilder.group({
-      email:  [null, [Validators.required, Validators.email]],
-      password: [null, Validators.required]
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, Validators.required],
     });
   }
 
   OnConnect() {
     //Garde le même nommage à travers tes composants userService != Authservice
     //Attention, tu ne peux souscrire à ton Observable qu'une fois
-    this.userService.connexion(this.connexion.value.email, this.connexion.value.password).subscribe({
-      next: (response: any) => {
-        console.log('Réponse complète du serveur :', response)
+    this.userService
+      .connexion(this.connexion.value.email, this.connexion.value.password)
+      .subscribe({
+        next: (response: any) => {
+          console.log('Réponse complète du serveur :', response);
 
-        if (response && response.accessToken) {
-          //Pour l'instant le backend ne renvoie l'email !
-          /*if (response.email) {
+          if (response && response.accessToken) {
+            //Pour l'instant le backend ne renvoie l'email !
+            /*if (response.email) {
             localStorage.setItem('user_email', response.data.email);
           }*/
-          console.log('Connexion réussie et token stocké!');
+            console.log('Connexion réussie et token stocké!');
 
-          if (response.admin)
-          {
-            this.router.navigate(['/admin']);
+            if (response.admin) {
+              this.router.navigate(['/admin']);
+            } else {
+              this.router.navigate(['/home']);
+            }
           } else {
-            this.router.navigate(['/home']);
+            console.error('Token non reçu dans la réponse.');
+            this.errorMsg = 'Token non reçu dans la réponse';
+            this.cleanMessage();
           }
-        } else {
-          console.error('Token non reçu dans la réponse.');
-          this.errorMsg = "Token non reçu dans la réponse";
+        },
+        error: (error: any) => {
+          console.error('Erreur lors de la connexion:', error);
+          this.errorMsg = 'Erreur lors de la connexion: ' + error.error.message;
           this.cleanMessage();
-        }
-      },
-      error: (error: any) => {
-        console.error('Erreur lors de la connexion:', error);
-        this.errorMsg = "Erreur lors de la connexion: " + error.error.message;
-        this.cleanMessage();
-      }
-    });
+        },
+      });
   }
-
+  // INUTILE
   private cleanMessage() {
     setTimeout(() => {
       this.errorMsg = '';
     }, 10000);
   }
 }
-

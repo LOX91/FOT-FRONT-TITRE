@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-edit-article',
   templateUrl: './edit-article.component.html',
-  styleUrls: ['./edit-article.component.css']
+  styleUrls: ['./edit-article.component.css'],
 })
 export class EditArticleComponent {
   modifyArticleForm!: FormGroup;
@@ -21,16 +21,18 @@ export class EditArticleComponent {
   successMsg!: string;
   imagePreview!: string;
   categories: Category[] = [];
-  baseUrl : string = "http://localhost:3000/api/picture/";
+  baseUrl: string = 'http://localhost:3000/api/picture/';
 
-  constructor (private articleService: ArticleService,
-                private picture: PictureService,
-                private route: ActivatedRoute,
-                private formBuilder: FormBuilder,) {}
+  constructor(
+    private articleService: ArticleService,
+    private picture: PictureService,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.loading = true;
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       const articleId = +params['id']; // Extract the 'id' parameter from the URL
       this.article$ = this.articleService.getSingleArticle(articleId);
 
@@ -53,9 +55,9 @@ export class EditArticleComponent {
       year: [this?.article?.year, Validators.required],
       description: [this?.article?.description, Validators.required],
       image: [this?.article?.id_picture, Validators.required],
-      category: [this?.article?.id_category, Validators.required]
+      category: [this?.article?.id_category, Validators.required],
     });
-    this.imagePreview = this.baseUrl + this.article.id_picture;
+    // this.imagePreview = this.baseUrl + this.article.id_picture;
   }
 
   onSubmit() {
@@ -68,14 +70,17 @@ export class EditArticleComponent {
       newArticle.id_category = this.modifyArticleForm.get('category')!.value;
       newArticle.id_picture = this.modifyArticleForm.get('image')!.value;
 
-      this.articleService.updateArticle(this.article.id_article, newArticle).subscribe({
-        next: () => {
-          this.successMsg = "L'article a bien été modifié!";
-        },
-        error: (error: any) => {
-          this.errorMsg = "Erreur lors de la création de l'article: " + error.error.message;
-        }
-      });
+      this.articleService
+        .updateArticle(this.article.id_article, newArticle)
+        .subscribe({
+          next: () => {
+            this.successMsg = "L'article a bien été modifié!";
+          },
+          error: (error: any) => {
+            this.errorMsg =
+              "Erreur lors de la création de l'article: " + error.error.message;
+          },
+        });
     } else {
       const formData = new FormData();
       formData.append('monFichier', this.modifyArticleForm.get('image')!.value);
@@ -84,28 +89,37 @@ export class EditArticleComponent {
           const newArticle = new Article();
           newArticle.titre = this.modifyArticleForm.get('titre')!.value;
           newArticle.year = this.modifyArticleForm.get('year')!.value;
-          newArticle.description = this.modifyArticleForm.get('description')!.value;
-          newArticle.id_category = this.modifyArticleForm.get('category')!.value;
+          newArticle.description =
+            this.modifyArticleForm.get('description')!.value;
+          newArticle.id_category =
+            this.modifyArticleForm.get('category')!.value;
           newArticle.id_picture = response.id_picture;
           console.log(response.id_picture);
 
-          this.articleService.updateArticle(this.article.id_article, newArticle).subscribe({
-            next: () => {
-              this.successMsg = "L'article a bien été modifié!";
-              this.picture.deletePhotos(this.article.id_picture).subscribe({
-                error: (error: any) => {
-                  this.errorMsg = "Problème lors de a suppression de la photo précédente" + error.error.message;
-                }
-              });
-            },
-            error: (error: any) => {
-              this.errorMsg = "Erreur lors de la création de l'article: " + error.error.message;
-            }
-          });
+          this.articleService
+            .updateArticle(this.article.id_article, newArticle)
+            .subscribe({
+              next: () => {
+                this.successMsg = "L'article a bien été modifié!";
+                this.picture.deletePhotos(this.article.id_picture).subscribe({
+                  error: (error: any) => {
+                    this.errorMsg =
+                      'Problème lors de a suppression de la photo précédente' +
+                      error.error.message;
+                  },
+                });
+              },
+              error: (error: any) => {
+                this.errorMsg =
+                  "Erreur lors de la création de l'article: " +
+                  error.error.message;
+              },
+            });
         },
         error: (error: any) => {
-          this.errorMsg = "Impossible d'enregistrer les images" + error.error.message;
-        }
+          this.errorMsg =
+            "Impossible d'enregistrer les images" + error.error.message;
+        },
       });
     }
   }

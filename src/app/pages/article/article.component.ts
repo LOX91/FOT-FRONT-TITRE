@@ -10,35 +10,35 @@ import { UsersService } from 'src/app/services/users.service';
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css']
+  styleUrls: ['./article.component.css'],
 })
 export class ArticleComponent implements OnInit {
   article$!: Observable<Article>;
-  baseUrl : string = "http://localhost:3000/api/picture/";
-user!:UserLog
-  constructor(private articleService:ArticleService,
-              private route: ActivatedRoute,
-              private userService:UsersService,
-              private authService:AuthService){}
+  baseUrl: string = 'http://localhost:3000/api/picture/';
+  user!: UserLog;
+  constructor(
+    private articleService: ArticleService,
+    private route: ActivatedRoute,
+    private userService: UsersService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     /*this.articleService.getSingleArticle().subscribe((article) => {
       this.article$ = article;
     });*/
-    this.authService.user$.subscribe((data)=>this.user=data)
-    console.log('user',this.user);//a voir avec Louis
+    this.authService.user$.subscribe((data) => (this.user = data));
+    console.log('user', this.user); //a voir avec Louis
 
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       const articleId = +params['id']; // Extract the 'id' parameter from the URL
       this.article$ = this.articleService.getSingleArticle(articleId);
     });
-}
+  }
 
-addFavorite(id_article:number){
-const id_user = localStorage.getItem('id_user')
-return this.userService.addFavorite(+id_user!,id_article)
-// console.log("dans addfavorite",id_article);
-
-}
-
+  addFavorite(id_article: number) {
+    const id_user = localStorage.getItem('id_user');
+    this.userService.addFavorite(+id_user!, id_article).subscribe();
+    // console.log("dans addfavorite",id_article);
+  }
 }

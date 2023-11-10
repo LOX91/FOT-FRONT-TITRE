@@ -1,0 +1,35 @@
+div {
+  text-align: center;
+  height: 100vh; /* Hauteur de la moitié de la fenêtre visible (viewport height) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+img {
+  width: 100%; /* Ajuster la largeur de l'image à 70% du conteneur (vous pouvez ajuster cette valeur selon vos besoins) */
+  max-width: 100%; /* Assurer que l'image ne dépasse pas sa taille d'origine */
+  height: 70%; /* Prend la moitié de la hauteur du conteneur */
+  object-fit: cover; /* Ajuste la taille de l'image pour remplir le conteneur */
+}
+
+p {
+  margin-top: 10px;
+}
+
+button {
+  background-color: #090a0a;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  width: 300px; /* Définir une largeur fixe pour le bouton */
+  margin: 0 auto; /* Pour centrer le bouton horizontalement */}
+
+button:hover {
+  background-color: #ffd700
+}
+
+
