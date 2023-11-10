@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { UserLog } from 'src/app/models/user-log';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 export class NavbarComponent implements OnInit{
   isAdmin$!: Observable<boolean>;
   isAuth$!: Observable<boolean>;
-  user$!: Observable<any>;
+  user$!: Observable<UserLog>;
   faHome = faHome;
 
   constructor(private auth: AuthService) { }

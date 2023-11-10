@@ -12,11 +12,10 @@ import { User } from 'src/app/models/Users';
 export class InscriptionComponent implements OnInit {
   addUser!: FormGroup;
   newUser!: User;
-  authService: any;
   errorMsg!: string;
 
   constructor(
-    private userService: AuthService,
+    private authService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router
   ) { }
@@ -38,7 +37,7 @@ export class InscriptionComponent implements OnInit {
     }
     //console.log(this.addUser);
 
-    this.userService.inscription(newUser).subscribe({
+    this.authService.inscription(newUser).subscribe({
       next: () => {
         //Ne pas utiliser d'alertes! | très préjudiciable pour l'UX
         this.addUser.reset();

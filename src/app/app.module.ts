@@ -20,6 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
 
 import { ArticleComponent } from './pages/article/article.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ArticleComponent } from './pages/article/article.component';
 
     FooterComponent,
     ArticleComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

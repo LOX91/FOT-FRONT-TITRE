@@ -8,6 +8,7 @@ import { ConnexionComponent } from './pages/page-connexion/page-connexion.compon
 import { ErrorComponent } from './pages/favoris/error.component';
 import { EspaceAdminComponent } from './pages/espace-admin/espace-admin.component';
 import { ArticleComponent } from './pages/article/article.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
       ) /*, canActivate: [adminGuard] */,
   },
   { path: 'ma-liste', component: ErrorComponent },
+  { path:'**', component: NotFoundComponent}
 ];
 
 @NgModule({
