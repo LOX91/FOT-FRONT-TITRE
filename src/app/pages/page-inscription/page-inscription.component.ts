@@ -39,7 +39,7 @@ export class InscriptionComponent implements OnInit {
 
     this.authService.inscription(newUser).subscribe({
       next: () => {
-        //Ne pas utiliser d'alertes! | très préjudiciable pour l'UX
+
         this.addUser.reset();
         this.router.navigate(['/connexion']);
       },
@@ -49,7 +49,7 @@ export class InscriptionComponent implements OnInit {
       },
     });
   }
-
+// inutile
   private cleanMessage() {
     setTimeout(() => {
       this.errorMsg = '';

@@ -1,2 +1,9 @@
 .color
 {color: yellow;}
+
+
+footer {
+  position: relative; /* ou position: absolute; */
+
+  width: 100%;
+}

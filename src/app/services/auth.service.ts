@@ -18,7 +18,7 @@ export class AuthService {
     interface ApiResponse {
       accessToken: string;
       admin: boolean;
-      user: UserLog; //Tu peux créer un modèle à la place du any ici
+      user: UserLog; // créer un modèle à la place du any ici
     }
 
     return this.http.post<ApiResponse>(`http://localhost:3000/api/auth/login`, { email: emailParam, password: passwordParam }).pipe(

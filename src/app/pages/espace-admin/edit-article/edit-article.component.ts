@@ -57,7 +57,9 @@ export class EditArticleComponent {
       image: [this?.article?.id_picture, Validators.required],
       category: [this?.article?.id_category, Validators.required],
     });
-    // this.imagePreview = this.baseUrl + this.article.id_picture;
+
+// EMPECHE LA MODIF
+//      this.imagePreview = this.baseUrl + this.article.id_picture;
   }
 
   onSubmit() {

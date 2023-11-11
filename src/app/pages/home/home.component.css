@@ -15,7 +15,7 @@ p {
     figure.max-w-screen-md {
       max-width: 100%;
       margin: auto;
-      border: 2px solid #333; /* Couleur de la bordure */
+
 
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
     }
@@ -23,7 +23,7 @@ p {
     .full-width-image {
       width: 100%;
       max-height: 30px;
-      height: 30px;
+      height: 40px;
       display: block;
       margin-bottom: 10px; /* Marge en bas de l'image (ajustez selon vos besoins) */
     }
@@ -62,4 +62,3 @@ p {
 
 
 
-    
