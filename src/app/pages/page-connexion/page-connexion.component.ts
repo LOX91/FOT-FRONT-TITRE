@@ -39,7 +39,7 @@ export class ConnexionComponent implements OnInit {
 
   OnConnect() {
     //Garde le même nommage à travers tes composants userService != Authservice
-    //Attention, tu ne peux souscrire à ton Observable qu'une fois
+    //Attention, on ne peux souscrire à l' Observable qu'une fois
     this.userService
       .connexion(this.connexion.value.email, this.connexion.value.password)
       .subscribe({

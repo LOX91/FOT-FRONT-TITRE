@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { UserLog } from 'src/app/models/user-log';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,12 +18,21 @@ export class NavbarComponent implements OnInit{
   user$!: Observable<UserLog>;
   faHome = faHome;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.isAuth$ = this.auth.isAuth$;
     this.isAdmin$ = this.auth.admin$;
     this.user$ = this.auth.user$;
+  }
+
+  get isUserLoggedIn(): boolean{
+    return !!localStorage.getItem('token')
+  }
+
+  deconnect(){
+    localStorage.clear()
+    this.router.navigate(['/home'])
   }
 }
 

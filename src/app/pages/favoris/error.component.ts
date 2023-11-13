@@ -2,63 +2,42 @@ import { Component } from '@angular/core';
 import { Article } from 'src/app/models/articles';
 import { UsersService } from 'src/app/services/users.service';
 import { NgZone } from '@angular/core';
+import { Favoris } from 'src/app/models/favoris';
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.css']
+  styleUrls: ['./error.component.css'],
 })
 export class ErrorComponent {
+  articlesFavori!: Favoris[];
+ id_user = +localStorage.getItem('id_user')!;
+  constructor(private userService: UsersService) {}
 
-articlesFavori!: Article[];
 
-constructor(private userService: UsersService){}
 
-// METHODE INITIALE
-
-ngOnInit(){
-
-const id_user = localStorage.getItem('id_user');
-if(id_user){
-
-  this.userService.getFavoritesByUser(+id_user).subscribe((res )=>{
-    console.log("ok",res);
-  },
-  (error) => {
-    console.error("Erreur lors de la récupération des favoris :", error);
+  ngOnInit() {
+    this.loadFavoris();
   }
 
-  );
-}
+  loadFavoris(){
+    this.userService.getFavoritesByUser(this.id_user).subscribe({
+      next: (favoris: Favoris[])=>{
+        this.articlesFavori = favoris
+        console.log('Favoris recu :', this.articlesFavori)
+      }, error: error =>{
+        console.error('Il y a un erreur : ', error)
+      }
+     }
+     )
+  }
 
-
- }
-
-
-
-
-
-// ...
-// methode loic ce
-// export class ErrorComponent {
-
-//   articlesFavori: Article[] = [];
-
-// constructor(private userService: UsersService, private zone: NgZone) {
-// this.articlesFavori = [];
-
-// }
-
-// // ...
-
-// ngOnInit() {
-//   const id_user = localStorage.getItem('id_user');
-//   if (id_user) {
-//     this.userService.getFavoritesByUser(+id_user).subscribe((res) => {
-//       this.zone.run(() => {
-
-//         console.log("ok", res);
-//       });
-//     });
-//   }
+  removeFavoris(favorisId: number){
+    this.userService.deleteFavoris(favorisId, this.id_user).subscribe({
+      next: ()=>{
+        alert('Retirer de vos favoris avec succès !')
+        this.loadFavoris();
+      }
+    })
+  }
 }

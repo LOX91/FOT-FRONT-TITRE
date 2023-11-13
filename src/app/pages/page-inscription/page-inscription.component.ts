@@ -39,8 +39,9 @@ export class InscriptionComponent implements OnInit {
 
     this.authService.inscription(newUser).subscribe({
       next: () => {
-
+        alert('Vous avez bien rejoint l\'équipe de FanOfTennis !')
         this.addUser.reset();
+
         this.router.navigate(['/connexion']);
       },
       error: (error: any) => {
