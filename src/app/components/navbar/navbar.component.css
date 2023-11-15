@@ -1,5 +1,22 @@
-.color
-{color: yellow;}
+.color {
+  color: black;
+}
 
 
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+.BTNDECO{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+
+}
 

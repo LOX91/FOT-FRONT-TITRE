@@ -1,3 +1,19 @@
+.css1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: solid 1px black;
+  border-radius: 3rem;
+}
 
+.block1 {
+  min-width: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
+h1 {
+  display: flex;
+  justify-content: center;
+}

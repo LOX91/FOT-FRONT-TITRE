@@ -1,19 +1,25 @@
-<div class="css1"><h1>Options de Recherche</h1>
+<h1>Recherche Par Catégorie</h1>
+<div class="css1">
+  <div
+    class="filter-bar form-check test"
+    *ngFor="let category of allCategories"
+  >
+    <div class="block1">
+      <input
+        type="checkbox"
+        id="category"
+        value="{{ category.id_category }}"
+        class="form-check"
+        (change)="onCheckCategory($event)"
+      />
 
-  <div class="filter-bar form-check" *ngFor="let category of allCategories">
-              <input type="checkbox"
-                  id="category"
-                  value="{{category.id_category}}"
-                  class="form-check"
-                  (change)="onCheckCategory($event)">
-
-          <label class ="form-check-label" for="{{category}}" >
-              {{category.name}}
-          </label>
-
-
-      </div>
-  <div class="container">
-
-
+      <label class="form-check-label" for="{{ category }}">
+        {{ category.name }}
+      </label>
+    </div>
   </div>
+  <!-- <div class="container">
+
+
+  </div> -->
+</div>

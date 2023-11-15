@@ -12,6 +12,7 @@ import { Favoris } from 'src/app/models/favoris';
 export class ErrorComponent {
   articlesFavori!: Favoris[];
  id_user = +localStorage.getItem('id_user')!;
+ baseUrl: string = 'http://localhost:3000/api/picture/';
   constructor(private userService: UsersService) {}
 
 
