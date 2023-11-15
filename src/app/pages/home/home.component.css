@@ -1,4 +1,4 @@
-.h1 {
+/* .h1 {
 size: 100 rem;
   color: blue;
   position: center;
@@ -9,25 +9,24 @@ p {
 
   .bg-blue-500 {
     background-color: #0a0a0a; /* Couleur bleue de base */
-  }
 
 
-    figure.max-w-screen-md {
+    /* figure.max-w-screen-md {
       max-width: 100%;
       margin: auto;
 
 
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
-    }
 
-    .full-width-image {
+
+    /* .full-width-image {
       width: 100%;
       max-height: 30px;
       height: 40px;
       display: block;
       margin-bottom: 10px; /* Marge en bas de l'image (ajustez selon vos besoins) */
-    }
 
+/*
     .text-center {
       text-align: center;
     }
@@ -54,11 +53,9 @@ p {
 
     .text-gray-900 {
       color: #333; /* Couleur du texte */
-    }
 
-    .dark:text-white {
-      color: #fff; /* Couleur du texte en mode sombre */
-    }
+
+
 
 
 
