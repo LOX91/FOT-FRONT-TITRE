@@ -1,9 +1,9 @@
-<div class="flex flex-wrap flex-row">
+<div class=" basdecard flex flex-wrap flex-row">
   <ng-container *ngFor="let article of article">
-    <a [routerLink]="[article.id_article]" class="w-4/12">
+    <a [routerLink]="[article.id_article]" class="w-4/12 flex-wrap-item"> <!-- Ajoutez la classe ici -->
       <div class="p-5">
         <img
-          class="rounded-t-lg mb-2 object-cover h-48 w-96 m-auto"
+          class="rounded-t-lg mb-2 object-cover h-48 w-96 m-auto border"
           [src]="baseUrl + article.id_picture"
           alt=""
         />
@@ -15,7 +15,6 @@
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
           {{ article.titre }}
         </p>
-
       </div>
     </a>
   </ng-container>

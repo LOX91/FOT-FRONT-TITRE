@@ -16,4 +16,16 @@
 h1 {
   display: flex;
   justify-content: center;
+
+}
+.form-check {
+
+  height: 40px; /* Ajustez cette valeur selon vos besoins */
+}
+
+
+.form-check-label {
+
+  font-weight: bold;
+  font-size: 18px; /* Ajustez cette valeur selon vos besoins */
 }

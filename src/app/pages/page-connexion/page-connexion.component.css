@@ -1,0 +1,17 @@
+.error-container {
+  border: 2px solid black; /* Couleur de la bordure du cadre */
+  padding: 10px; /* Espace à l'intérieur du cadre */
+  margin-top: 20px; /* Marge en haut pour séparer du formulaire */
+  text-align: center; /* Centrer le contenu horizontalement */
+}
+
+.error-msg {
+  color: #e74c3c; /* Couleur du texte du message d'erreur */
+}
+.test
+{
+  height: 50px;
+  background-color: black;
+color: yellow;
+
+}
