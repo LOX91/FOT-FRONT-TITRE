@@ -36,7 +36,6 @@ export class ErrorComponent {
   removeFavoris(favorisId: number){
     this.userService.deleteFavoris(favorisId, this.id_user).subscribe({
       next: ()=>{
-        alert('Retirer de vos favoris avec succès !')
         this.loadFavoris();
       }
     })

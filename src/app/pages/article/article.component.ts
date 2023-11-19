@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Article } from 'src/app/models/articles';
 import { UserLog } from 'src/app/models/user-log';
@@ -20,7 +20,8 @@ export class ArticleComponent implements OnInit {
     private articleService: ArticleService,
     private route: ActivatedRoute,
     private userService: UsersService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +39,16 @@ export class ArticleComponent implements OnInit {
 
   addFavorite(id_article: number) {
     const id_user = localStorage.getItem('id_user');
-    this.userService.addFavorite(+id_user!, id_article).subscribe();
+    this.userService.addFavorite(+id_user!, id_article).subscribe(
+      {
+        next: (response: any) => {
+          this.router.navigate(['/ma-liste']);
+        },
+        error: (error: any) => {
+          //A faire
+        },
+      }
+    );
     // console.log("dans addfavorite",id_article);
   }
 }
