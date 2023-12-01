@@ -22,7 +22,7 @@ export class UsersService {
 
   addFavorite(id_users: number, id_article: number) {
     const body = {};
-    // console.log('coucou');
+    
     return this.http.post(
       `${this.apiUrl}/user/${id_users}/favorites/${id_article}`,
       body, {headers: this.getHeaders()}

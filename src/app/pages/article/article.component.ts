@@ -29,10 +29,10 @@ export class ArticleComponent implements OnInit {
       this.article$ = article;
     });*/
     this.authService.user$.subscribe((data) => (this.user = data));
-    console.log('user', this.user); //a voir avec Louis
+    console.log('user', this.user);
 
     this.route.params.subscribe((params) => {
-      const articleId = +params['id']; // Extract the 'id' parameter from the URL
+      const articleId = +params['id'];
       this.article$ = this.articleService.getSingleArticle(articleId);
     });
   }
@@ -45,10 +45,10 @@ export class ArticleComponent implements OnInit {
           this.router.navigate(['/ma-liste']);
         },
         error: (error: any) => {
-          //A faire
+
         },
       }
     );
-    // console.log("dans addfavorite",id_article);
+
   }
 }
