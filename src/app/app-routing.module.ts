@@ -9,12 +9,14 @@ import { ErrorComponent } from './pages/favoris/error.component';
 import { EspaceAdminComponent } from './pages/espace-admin/espace-admin.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AddArticleComponent } from './pages/espace-admin/add-article/add-article.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'ma-collection', component: ArticlesComponent },
   { path: 'ma-collection/:id', component: ArticleComponent },
+  {path: 'ajouter-article', component: AddArticleComponent},
   { path: 'connexion', component: ConnexionComponent },
   { path: 'inscription', component: InscriptionComponent },
   {

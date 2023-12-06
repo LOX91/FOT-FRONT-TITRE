@@ -1,13 +1,17 @@
-
 <div class="favo" *ngFor="let favoris of articlesFavori">
-  <h1>{{favoris.titre}}</h1>
-  <p>{{favoris.year}}</p>
-  <p>{{favoris.description}}</p>
-  <img
-  class="rounded-t-lg mb-2"
-  [src]="baseUrl + favoris.id_picture"
-  alt=""
-/>
-  <button (click)="removeFavoris(favoris.id_article)">Supprimer de mes favoris</button>
+  <div class="test">
+    <h1>{{ favoris.titre }}</h1>
+    <div>
+      <p>{{ favoris.year }}</p>
+      <p>{{ favoris.description }}</p>
+    </div>
+    <img
+      class="rounded-t-lg mb-2"
+      [src]="baseUrl + favoris.id_picture"
+      alt=""
+    />
+    <button (click)="removeFavoris(favoris.id_article)">
+      Supprimer de mes favoris
+    </button>
+  </div>
 </div>
-

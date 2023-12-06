@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
   h1 {
     font-size: 2.0rem;
     font-weight: bold;
@@ -9,30 +9,28 @@
     margin-bottom: 20px;
     background-color: yellow;
   }
-</style>
+</style> -->
+<div class="taille">
+  <p>Recherche Par Catégorie</p>
+  <div class="css1 position">
+    <div class="test" *ngFor="let category of allCategories">
+      <div class="block1">
+        <input
+          type="checkbox"
+          id="category"
+          value="{{ category.id_category }}"
+          class="form-check"
+          (change)="onCheckCategory($event)"
+        />
 
-<h1>Recherche Par Catégorie</h1>
-<div class="css1">
-  <div
-    class="filter-bar form-check test"
-    *ngFor="let category of allCategories"
-  >
-    <div class="block1">
-      <input
-        type="checkbox"
-        id="category"
-        value="{{ category.id_category }}"
-        class="form-check"
-        (change)="onCheckCategory($event)"
-      />
-
-      <label class="form-check-label" for="{{ category }}">
-        {{ category.name }}
-      </label>
+        <label class="form-check-label" for="{{ category }}">
+          {{ category.name }}
+        </label>
+      </div>
     </div>
-  </div>
-  <!-- <div class="container">
+    <!-- <div class="container">
 
 
   </div> -->
+  </div>
 </div>

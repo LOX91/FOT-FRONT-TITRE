@@ -5,6 +5,7 @@ import { Category } from 'src/app/models/categorie';
 import { ArticleService } from 'src/app/services/articles.service';
 import { PictureService } from 'src/app/services/picture.service';
 import { Article } from '../../../models/articles';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-article',
@@ -20,7 +21,8 @@ export class AddArticleComponent implements OnInit {
 
   constructor (private article: ArticleService,
                 private picture: PictureService,
-                private formBuilder: FormBuilder,) {}
+                private formBuilder: FormBuilder,
+                private router: Router) {}
 
   ngOnInit(): void {
     this.article.getCategories().subscribe((data) => {
@@ -54,6 +56,7 @@ export class AddArticleComponent implements OnInit {
         this.article.addArticle(newArticle).subscribe({
           next: () => {
             this.successMsg = "L'article a bien été créé!";
+            this.router.navigate(['/ma-collection'])
           },
           error: (error: any) => {
             this.errorMsg = "Erreur lors de la création de l'article: " + error.error.message;

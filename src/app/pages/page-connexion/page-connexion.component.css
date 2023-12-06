@@ -8,10 +8,17 @@
 .error-msg {
   color: #e74c3c; /* Couleur du texte du message d'erreur */
 }
-.test
-{
+.test {
   height: 50px;
   background-color: black;
-color: yellow;
-
+  color: yellow;
+}
+button {
+  width: 48%;
+  /* margin: 1rem; */
+}
+.cool {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }

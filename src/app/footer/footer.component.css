@@ -1,18 +1,49 @@
-.color
-{color: #ffff00;}
-
+.color {
+  color: #ffff00;
+}
 
 footer {
   position: fixed; /* ou position: absolute; */
-bottom: 0;
+  bottom: 0;
   width: 100%;
- margin: 0;
- padding: 0;
- border-radius: 0;
- border-top: solid  1px white;
-
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border-top: solid 1px white;
 }
-.p{
-color: yellow;
+.p {
+  color: yellow;
+}
+.color {
+  color: #ffff00;
+}
 
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border-top: solid 1px white;
+  background-color: #333; /* Ajoutez une couleur de fond pour le pied de page si nécessaire */
+}
+
+@media only screen and (max-width: 650px), (max-height: 500px) {
+  * {
+    display: flex;
+   
+    flex-direction: column;
+
+  }
+  .position {
+
+    display: flex;
+    text-align: right;
+    font-size: 12px;
+  }
+  .bg-black {
+    width: 100%;
+    max-width: max-content;
+  }
 }

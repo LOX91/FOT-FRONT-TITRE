@@ -1,5 +1,18 @@
-.test{
+.test {
+  color: black;
+}
 
-color: black;
+.Ouestu {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 15px;
 
-  }
+  background-color: black;
+  color: #ffff00;
+  height: 2rem;
+  margin-bottom: 5rem;
+  margin-left: 1rem;
+  font-weight: bold;
+}

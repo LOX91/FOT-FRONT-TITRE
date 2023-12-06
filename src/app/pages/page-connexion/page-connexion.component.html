@@ -1,20 +1,71 @@
 <div class="flex items-center justify-center h-screen">
-  <form class="w-full max-w-md" [formGroup]="connexion" (ngSubmit)="OnConnect()">
+  <form
+    class="w-full max-w-md"
+    [formGroup]="connexion"
+    (ngSubmit)="OnConnect()"
+  >
     <div class="mb-4">
-      <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Votre Email</label>
-      <input formControlName="email" type="email" id="email" [ngClass]="(connexion.get('email')?.invalid && connexion.get('email')?.touched) ? 'border-red-600' : 'border-gray-300'" class="bg-gray-50 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@gmail.com" required>
+      <label
+        for="email"
+        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+        >Votre Email</label
+      >
+      <input
+        formControlName="email"
+        type="email"
+        id="email"
+        [ngClass]="
+          connexion.get('email')?.invalid && connexion.get('email')?.touched
+            ? 'border-red-600'
+            : 'border-gray-300'
+        "
+        class="bg-gray-50 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="name@gmail.com"
+        required
+      />
     </div>
     <div class="mb-4">
-      <label for="password" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Mot De Passe</label>
-      <input formControlName="password" [type]="ShowPassword ? 'text' : 'password'" id="password" [ngClass]="(connexion.get('password')?.invalid && connexion.get('password')?.touched) ? 'border-red-600' : 'border-gray-300'" class="bg-gray-50 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-      <fa-icon [icon]="ShowPassword ? faEyeSlash : faEye" (click)="ShowPassword = !ShowPassword"></fa-icon>
+      <label
+        for="password"
+        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+        >Mot De Passe</label
+      >
+      <input
+        formControlName="password"
+        [type]="ShowPassword ? 'text' : 'password'"
+        id="password"
+        [ngClass]="
+          connexion.get('password')?.invalid &&
+          connexion.get('password')?.touched
+            ? 'border-red-600'
+            : 'border-gray-300'
+        "
+        class="bg-gray-50 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        required
+      />
+      <div class="error-msg" *ngIf="errorMsg">{{ errorMsg }}</div>
+
+      <fa-icon
+        [icon]="ShowPassword ? faEyeSlash : faEye"
+        (click)="ShowPassword = !ShowPassword"
+      ></fa-icon>
     </div>
-    <button type="submit" [disabled]="connexion.invalid" class=" test text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-yellow-600 dark:hover:bg-blue-700 dark:focus:ring-yellow-800">Rejoindre Fan Of Tennis</button>
+    <div class="cool">
+
+      <button
+      type="submit"
+      [disabled]="connexion.invalid"
+      class="test text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-yellow-600 dark:hover:bg-blue-700 dark:focus:ring-yellow-800"
+      >
+      Rejoindre Fan Of Tennis
+    </button>
+    <!-- <div class="error-container mt-4"></div> -->
+    <button
+    [routerLink]="['/inscription']"
+    class="test text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-yellow-600 dark:hover:bg-blue-700 dark:focus:ring-yellow-800"
+    >
+    Tu n'est pas encore inscrit ? C'est ici !
+  </button>
+</div>
   </form>
-  <div class="error-container mt-4">
-    <div class="error-msg" *ngIf="errorMsg">{{ errorMsg }}</div>
-
-
-    <a [routerLink]="['/inscription']" class=" mt-2">Tu n'est pas encore inscrit ? C'est ici !</a>
-  </div>
 </div>
