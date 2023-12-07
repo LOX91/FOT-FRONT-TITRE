@@ -32,12 +32,10 @@ footer {
 @media only screen and (max-width: 650px), (max-height: 500px) {
   * {
     display: flex;
-   
-    flex-direction: column;
 
+    flex-direction: column;
   }
   .position {
-
     display: flex;
     text-align: right;
     font-size: 12px;
@@ -45,5 +43,8 @@ footer {
   .bg-black {
     width: 100%;
     max-width: max-content;
+  }
+  .essai {
+    width: 100vw;
   }
 }
