@@ -1,7 +1,7 @@
-.test
-{
+.test {
   height: 50px;
   background-color: black;
-color: yellow;
-
+  color: yellow;
+  margin: 20px;
+  margin-bottom: 3rem;
 }

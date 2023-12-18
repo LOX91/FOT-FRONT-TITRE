@@ -1,5 +1,8 @@
-
-<form class="w-3/6 shadow-sm mx-auto" [formGroup]="addUser" (ngSubmit)="OnAddUser()">
+<form
+  class="w-3/6 shadow-sm mx-auto m-8"
+  [formGroup]="addUser"
+  (ngSubmit)="OnAddUser()"
+>
   <div class="mb-6">
     <label
       for="Prénom"
@@ -86,11 +89,16 @@
   <button
     type="submit"
     [disabled]="addUser.invalid"
-    class=" test text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-yellow-600 dark:hover:bg-blue-700 dark:focus:ring-yellow-800"
+    class="test text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-yellow-600 dark:hover:bg-blue-700 dark:focus:ring-yellow-800"
   >
-  Rejoindre Fan Of Tennis
+    Rejoindre Fan Of Tennis
+  </button>
+  <button
+    class="test text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-yellow-600 dark:hover:bg-blue-700 dark:focus:ring-yellow-800"
+    [routerLink]="['/connexion']"
+  >
+    Déjà un compte ? C'est par ici !
   </button>
 </form>
 
 <div class="error-msg" *ngIf="errorMsg">{{ errorMsg }}</div>
-<a [routerLink]="['/connexion']">Déjà un compte ? C'est par ici !</a>

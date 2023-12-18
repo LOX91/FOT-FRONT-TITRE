@@ -12,13 +12,17 @@ export class AuthService {
   public isAuth$ = new BehaviorSubject<boolean>(false);
   public admin$ = new BehaviorSubject<boolean>(false);
   public user$ = new Subject<UserLog>;
+  isAdmin(): boolean {
+    return this.admin$.value;
+  }
   constructor(private http: HttpClient, private router: Router) {}
+
 
   connexion(emailParam: string, passwordParam: string) {
     interface ApiResponse {
       accessToken: string;
       admin: boolean;
-      user: UserLog; // créer un modèle à la place du any ici
+      user: UserLog;
     }
 
     return this.http.post<ApiResponse>(`http://localhost:3000/api/auth/login`, { email: emailParam, password: passwordParam }).pipe(

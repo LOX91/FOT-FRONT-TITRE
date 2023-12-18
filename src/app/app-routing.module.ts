@@ -10,7 +10,7 @@ import { EspaceAdminComponent } from './pages/espace-admin/espace-admin.componen
 import { ArticleComponent } from './pages/article/article.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AddArticleComponent } from './pages/espace-admin/add-article/add-article.component';
-
+import { AdminGuard } from './guards/admin.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/espace-admin/espace-admin.module').then(
         (m) => m.EspaceAdminModule
-      ) /*, canActivate: [adminGuard] */,
+      ) , canActivate: [AdminGuard] ,
   },
   { path: 'ma-liste', component: ErrorComponent },
   { path:'**', component: NotFoundComponent}

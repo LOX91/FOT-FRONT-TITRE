@@ -4,6 +4,7 @@
   justify-content: space-between;
   border: solid 1px black;
   border-radius: 3rem;
+
 }
 input {
   color: black;
@@ -12,11 +13,12 @@ input {
 }
 
 .block1 {
-  /* min-width: 7rem; */
+
   display: flex;
 
-  /* justify-content: space-between; */
-  /* align-items: center; */
+
+
+
 }
 label {
   display: flex;
@@ -49,12 +51,14 @@ p {
   margin: 10px;
   display: flex;
 
+
   justify-content: space-between;
 }
 
 .form-check-label {
   font-weight: bold;
   font-size: 18px; /* Ajustez cette valeur selon vos besoins */
+
 }
 @media only screen and (max-width: 650px), (max-height: 500px) {
   h1 {
@@ -84,6 +88,7 @@ p {
     border: none;
     /* border-radius: 3rem; */
     width: 100%;
+
   }
   .test {
     display: flex;
@@ -93,12 +98,19 @@ p {
   }
   label {
     /* width: 100%; */
+
   }
   input {
     width: 25px;
+
   }
   .test {
     /* background-color: red; */
     /* width: max-content; */
   }
 }
+
+
+
+;
+

@@ -13,7 +13,7 @@
   </div>
   <div class="my-6 flex flex-row h-28">
     <div>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" (click)="imageInput.click()">Add Image</button>
+      <button class=" FAVO bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" (click)="imageInput.click()">Add Image</button>
     </div>
     <input type="file" accept="image/*" #imageInput (change)="onFileAdded($event)" hidden/>
     <img [src]="imagePreview" *ngIf="imagePreview" style="max-height: 100px;display:block"  class="ml-8">
@@ -26,7 +26,7 @@
     </select>
   </div>
   <div class="flex justify-center">
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" (click)="onSubmit()" [disabled]="articleForm.invalid">Create</button>
+    <button class=" FAVO bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" (click)="onSubmit()" [disabled]="articleForm.invalid">Create</button>
   </div>
 </form>
 <p class="w-2/12 opacity-80 text-center bg-green-400 text-white m-auto py-4 rounded-lg" *ngIf="successMsg">{{ successMsg }}</p>

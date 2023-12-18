@@ -32,7 +32,7 @@ export class ArticleService {
   }
 
   // Méthode pour ajouter un nouvel article
-  addArticle(article: Article): Observable<any> {
+  addArticle(article: Article): Observable<{ message: string }> {
     return this.http.post<{ message: string }>(`${this.apiUrl}/article`, article, {headers: this.getHeaders()});
   }
 
